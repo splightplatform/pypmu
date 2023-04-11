@@ -119,7 +119,7 @@ class Pdc(object):
         """
 
         while len(received_data) < 4:
-            received_data += self.pmu_socket.recv(self.buffer_size)
+            received_data += self.pmu_socket.recv(4)
 
         bytes_received = len(received_data)
         total_frame_size = int.from_bytes(received_data[2:4], byteorder="big", signed=False)
